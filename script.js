@@ -13,7 +13,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
-  submitBtn.textContent = "Submitting...";
+  submitBtn.textContent = "Submitting...🥱";
 
   fetch(scriptURL, {
     method: 'POST',
@@ -45,3 +45,4 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     alert('Invalid credentials!');
   }
 });
+
