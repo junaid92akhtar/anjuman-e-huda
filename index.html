@@ -1,28 +1,65 @@
 <!DOCTYPE html>
- <html>
- <head>
+<html>
+<head>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-<form method="post" action="https://script.google.com/macros/s/AKfycbz0zuIQQ3ustzvMm6TacqK1O5DiJOaqbwYQcb9E_EEOA1d__X5Rm2rDn4t_4FBSPBI2/exec" name="contact-form">
-<h4>📝 Program Data Form</h4>
-<label for="text">Program Name:</label>
-<input type="text" name="Program name" placeholder="Program Name" >
-<label for="date">Date:</label>
-<input type="date" name="Date" id="date" required>
-<label for="club name">Club Name:</label>
-<input type="text" name="club name" placeholder="Club Name">
-<label for="frequency">Frequency:</label>
-<input type="text" name="frequency" placeholder="Frequency" >
-<label for="institute"> Institute:</label>
-<input type="text" name="institute" placeholder="Institute" >
-<textarea name="Message" placeholder="Description"></textarea>
-<button type="submit">Submit</button>
+<div class="header" style="text-align:center; margin-top:30px;">
+    <h1 style="color:#000000; font-size:2.2em; margin-bottom:10px; text-shadow:1px 1px 8px #ff00ea;">
+        Welcome to Anjuman-e-huda Core Committee 2025-26
+    </h1>
+    <p id="login-message" style="font-size:1.15em; color:#a5a2a2; margin-bottom:20px;">
+        Login to access the program data form
+    </p>
+    <script>
+      // Hide the login message when the main form is shown
+      document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('login-form');
+        const mainForm = document.getElementById('main-form');
+        const loginMessage = document.getElementById('login-message');
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          loginMessage.style.display = 'none';
+        });
+      });
+    </script>
+</div>
 
-</form>
+<div class="container">
+  <!-- Login Form -->   
+  <form id="login-form">
+    <div style="background:#f5f5f5; border-radius:8px; padding:16px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.07); text-align:center;">
+      <h3 style="margin:0; color:#333;">🔓🗝️ Unlock to enter information — that's the proper way to do it. 😊</h3>
+    </div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Main Data Form (hidden by default) -->
+  <form id="main-form" method="post" action="https://script.google.com/macros/s/AKfycbz0zuIQQ3ustzvMm6TacqK1O5DiJOaqbwYQcb9E_EEOA1d__X5Rm2rDn4t_4FBSPBI2/exec" name="contact-form" style="display:none;">
+    <h2>📝 Program Data Form</h2>
+    <label for="text">Program Name:</label>
+    <input type="text" name="Program name" placeholder="Program Name" >
+    <label for="text">Date:</label>
+    <input type="   " name="text" id="text" >
+    <label for="club name">Club Name:</label>
+    <input type="text" name="club name" placeholder="Club Name">
+    <label for="frequency">Frequency:</label>
+    <input type="text" name="frequency" placeholder="Frequency" >
+    <label for="institute"> Institute:</label>
+    <input type="text" name="institute" placeholder="Institute" >
+    <label for="Message">Description:</label>
+    <textarea name="Message" id="Message" placeholder="Enter a detailed description of your program..." rows="5" style="resize:vertical;"></textarea>
+    <button type="submit">Submit</button>
+
+  </form>
 </div>
 <script src="script.js"></script>
-
+<footer style="position:fixed; bottom:10px; right:20px; width:auto; text-align:right; color:#333; font-size:0.85em; background:transparent; padding:6px 12px; border-radius:8px;"></footer>
+    Made by Junaid Akhtar | <a href="mailto:junaid92akhtar@gmail.com" style="color:#000000; text-decoration:none;">junaid92akhtar@gmail.com</a>
+</footer>
 </body>
- </html>
+</html>
