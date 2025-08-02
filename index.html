@@ -4,6 +4,25 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div style="position:fixed; top:20px; right:30px; z-index:10;">
+  <img src="C:\Users\anjum\Downloads\332ba0947cc7c7f80ef416403189bc74.jpg" id="profilePic" alt="Junaid Akhtar" style="width:56px; height:56px; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.18); cursor:pointer; border:2px solid #fff;">
+</div>
+<div id="bioPopup" style="display:none; position:fixed; top:80px; right:30px; background:rgba(255,255,255,0.95); border-radius:14px; box-shadow:0 4px 24px rgba(0,0,0,0.18); padding:22px 18px; z-index:20; min-width:220px;">
+  <span style="font-weight:bold; color:#2575fc;">Hello, my name is Junaid</span>
+  <br>
+  <span style="color:#333; font-size:1em; line-height:1.6;">
+    <strong>About Me</strong><br>
+    Assalamu Alaikum! I'm <b>Junaid Akhtar</b>, a Class 10 student at Darul Huda Islamic University.<br>
+    My passions include <span style="color:#2575fc;">Islamic studies</span> and <span style="color:#ff00ea;">web development</span>.<br>
+    I built this website for Anjuman-e-Huda to streamline program data entry — all in just one day!<br>
+    I enjoy learning, working on creative projects, and exploring the legacy of great Islamic scholars.<br>
+    <span style="color:#2575fc;">Need help with a project?</span> <br>
+    <b>Hire me:</b> <a href="mailto:junaid92akhtar@gmail.com" style="color:#2575fc; text-decoration:underline;">junaid92akhtar@gmail.com</a><br>
+    I'm always happy to help!
+  </span>
+  <br><br>
+  <button onclick="document.getElementById('bioPopup').style.display='none'" style="background:#2575fc; color:#fff; border:none; border-radius:8px; padding:6px 16px; cursor:pointer;">Close</button>
+</div>
 <div class="header" style="text-align:center; margin-top:30px;">
     <h1 style="color:#000000; font-size:2.2em; margin-bottom:10px; text-shadow:1px 1px 8px #ff00ea;">
         Welcome to Anjuman-e-huda Core Committee 2025-26
@@ -58,6 +77,11 @@
   </form>
 </div>
 <script src="script.js"></script>
+<script>
+document.getElementById('profilePic').onclick = function() {
+  document.getElementById('bioPopup').style.display = 'block';
+};
+</script>
 <footer style="position:fixed; bottom:10px; right:20px; width:auto; text-align:right; color:#333; font-size:0.85em; background:transparent; padding:6px 12px; border-radius:8px;"></footer>
     Made by Junaid Akhtar | <a href="mailto:junaid92akhtar@gmail.com" style="color:#000000; text-decoration:none;">junaid92akhtar@gmail.com</a>
 </footer>
