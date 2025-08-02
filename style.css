@@ -1,0 +1,57 @@
+/* Universal styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+}
+
+/* Body styling */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container styling */
+.container {
+  width: 500px;
+  padding: 30px;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  background-color: #003b5b;
+}
+
+/* Heading */
+h4 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: white;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+}
+
+
+/* Submit button */
+.submit {
+    border: none;
+    background-color: rgb(255, 0, 255);
+    color: white;
+    width: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Submit button hover effect */
+.submit:hover {
+  background-color: #397ac4;
+}
