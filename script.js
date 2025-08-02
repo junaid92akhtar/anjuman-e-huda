@@ -20,7 +20,7 @@ form.addEventListener('submit', e => {
     body: new FormData(form)
   })
     .then(response => {
-      alert("Thank you! Your form is submitted successfully.");
+      alert("Thank you!😊  Your🫵 form is submitted successfully.");
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit";
       window.location.reload(); // Reloads the page after submit
@@ -45,5 +45,6 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     alert('Invalid credentials!');
   }
 });
+
 
 
