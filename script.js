@@ -45,4 +45,3 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     alert('Invalid credentials!');
   }
 });
-
