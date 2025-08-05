@@ -2,11 +2,19 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 </head>
 <body>
-<div style="position:fixed; top:20px; right:30px; z-index:10;">
-  <img src="https://i.pinimg.com/280x280_RS/33/2b/a0/332ba0947cc7c7f80ef416403189bc74.jpg" id="profilePic" alt="Junaid Akhtar" style="width:56px; height:56px; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.18); cursor:pointer; border:2px solid #fff;">
+<div class="top-bar">
+  <img src="https://i.pinimg.com/280x280_RS/33/2b/a0/332ba0947cc7c7f80ef416403189bc74.jpg" id="profilePic" alt="Junaid Akhtar" style="width:40px; height:40px; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.18); cursor:pointer; border:2px solid #fff; margin-right:10px;">
+  <button class="login-btn" id="show-login">Login</button>
+  <button class="login-btn" id="logout-btn" style="display:none; margin-left:8px; background:#ff4d4d;">Logout</button>
 </div>
+
 <div id="bioPopup" style="display:none; position:fixed; top:80px; right:30px; background:rgba(255,255,255,0.95); border-radius:14px; box-shadow:0 4px 24px rgba(0,0,0,0.18); padding:22px 18px; z-index:20; min-width:220px;">
  <center> <body>
   <h2 style="color:#2575fc; font-size:1.4em; margin:0 0 10px; text-shadow:1px 1px 4px #ff00ea;">About Me</h2>
@@ -26,32 +34,23 @@
   <br><br>
   <button onclick="document.getElementById('bioPopup').style.display='none'" style="background:#2575fc; color:#fff; border:none; border-radius:8px; padding:6px 16px; cursor:pointer;">Close</button>
 </div>
-<div class="header" style="text-align:center; margin-top:30px;">
-    <h1 style="color:#000000; font-size:2.2em; margin-bottom:10px; text-shadow:1px 1px 8px #ff00ea;">
-        Welcome to Anjuman-e-huda <br> Core Committee 2025-26
-    </h1>
-    <p id="login-message" style="font-size:1.15em; color:#a5a2a2; margin-bottom:20px;">
-        Login to access the program data form
-    </p>
-    <script>
-      // Hide the login message when the main form is shown
-      document.addEventListener('DOMContentLoaded', function() {
-        const loginForm = document.getElementById('login-form');
-        const mainForm = document.getElementById('main-form');
-        const loginMessage = document.getElementById('login-message');
-        loginForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          loginMessage.style.display = 'none';
-        });
-      });
-    </script>
-</div>
 
-<div class="container">
-  <!-- Login Form -->   
+  <h1 style="color:#2575fc; font-size:2.5em; margin-bottom:10px;">
+    Welcome to Anjuman-e-huda <br> Core Committee 2025-26
+  </h1>
+  <p style="font-size:1.2em; color:#333;">
+    Streamline your program data entry. <br>
+    Please login to access the form.
+  </p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/DHIU_Main_Block.jpg" alt="Inspiration" style="margin:24px auto 12px; display:block; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.12); max-width:500px;">
+  
+
+<!-- Replace old login form with modal -->
+<div id="login-form-modal">
   <form id="login-form">
+    <button type="button" id="close-login">X</button>
     <div style="background:#f5f5f5; border-radius:8px; padding:16px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.07); text-align:center;">
-      <h3 style="margin:0; color:#333;">want to enter 🤔 please unlock it 👀</h3>
+      <h3 style="margin:0; color:#333;">Please login to continue</h3>
     </div>
     <label for="username">Username:</label>
     <input type="text" id="username" placeholder="Enter username" required>
@@ -59,8 +58,10 @@
     <input type="password" id="password" placeholder="Enter password" required>
     <button type="submit">Login</button>
   </form>
+</div>
 
-  <!-- Main Data Form (hidden by default) -->
+<!-- Main Data Form (hidden by default) -->
+<div class="container">
   <form id="main-form" method="post" action="https://script.google.com/macros/s/AKfycbz0zuIQQ3ustzvMm6TacqK1O5DiJOaqbwYQcb9E_EEOA1d__X5Rm2rDn4t_4FBSPBI2/exec" name="contact-form" style="display:none;">
     <h2>📝 Program Data Form</h2>
     <label for="text">Program Name:</label>
@@ -71,8 +72,8 @@
     <input type="text" name="club name" placeholder="Club Name">
     <label for="frequency">Frequency:</label>
     <input type="text" name="frequency" placeholder="Frequency" >
-    <label for="institute"> Institute:</label>
-    <input type="text" name="institute" placeholder="Institute" >
+    <label for="institute"> Your Name:</label>
+    <input type="text" name="Your Name" placeholder="Your Name" >
     <label for="Message">Description:</label>
     <textarea name="Message" id="Message" placeholder="Enter a detailed description of your program..." rows="5" style="resize:vertical;"></textarea>
     <button type="submit">Submit</button>
@@ -84,8 +85,29 @@
 document.getElementById('profilePic').onclick = function() {
   document.getElementById('bioPopup').style.display = 'block';
 };
+document.getElementById('show-login').onclick = function() {
+  if (document.getElementById('show-login').style.display === 'none') return;
+  document.getElementById('login-form-modal').style.display = 'flex';
+};
+document.getElementById('close-login').onclick = function() {
+  document.getElementById('login-form-modal').style.display = 'none';
+};
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('login-form-modal').style.display = 'none';
+  document.getElementById('main-form').style.display = 'block';
+  document.getElementById('show-login').style.display = 'none';
+  document.getElementById('logout-btn').style.display = 'inline-block';
+  document.querySelector('.home-section').style.display = 'none'; // Hide home page after login
+});
+document.getElementById('logout-btn').onclick = function() {
+  document.getElementById('main-form').style.display = 'none';
+  document.getElementById('show-login').style.display = 'inline-block';
+  document.getElementById('logout-btn').style.display = 'none';
+  document.querySelector('.home-section').style.display = 'block'; // Show home page after logout
+};
 </script>
-<footer style="position:fixed; bottom:10px; right:20px; width:auto; text-align:right; color:#333; font-size:0.85em; background:transparent; padding:6px 12px; border-radius:8px;"></footer>
+<footer style="position:fixed; bottom:10px; right:20px; width:auto; text-align:right; color:#333; font-size:0.85em; background:transparent; padding:6px 12px; border-radius:8px;">
     Made by Junaid Akhtar | <a href="mailto:junaid92akhtar@gmail.com" style="color:#000000; text-decoration:none;">junaid92akhtar@gmail.com</a>
 </footer>
 </body>
